@@ -1,0 +1,6 @@
+.header {
+    @include flex-align-center-between;
+    background-color: #000;
+    color: #fff;
+    padding: 16px;
+}
