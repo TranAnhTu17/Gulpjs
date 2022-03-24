@@ -5,7 +5,12 @@ const browserSync = require("browser-sync").create();
 
 const options = {
     pug: {
-        src: "./app/views/**/*.pug",
+        all: "./app/views/**/*.pug",
+        src: [
+            "app/views/*.pug",
+            "app/views/!blocks/**",
+            "app/views/!layout/**",
+        ],
         dest: "./public",
     },
     styles: {
@@ -59,7 +64,7 @@ function watch() {
         },
     });
     gulp.watch(options.styles.src, styles);
-    gulp.watch(options.pug.src, views);
+    gulp.watch(options.pug.all, views);
     gulp.watch(options.scripts.src, scripts);
 }
 
